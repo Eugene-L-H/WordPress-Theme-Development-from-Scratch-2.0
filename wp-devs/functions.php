@@ -11,3 +11,10 @@ function wpdevs_load_scripts()
 } // TODO - change the version number back to 1.0.0 before going live
 
 add_action("wp_enqueue_scripts", "wpdevs_load_scripts");
+
+register_nav_menus(
+  array(
+    'wp_devs_main_menu' => 'Main Menu',
+    'wp_devs_footer_menu' => 'Footer Menu'
+  )
+);
