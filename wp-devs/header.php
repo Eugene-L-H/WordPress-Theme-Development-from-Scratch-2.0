@@ -26,6 +26,13 @@
       <section class="menu-area">
         <div class="container">
           <nav class="main-menu">
+            <button class="check-button">
+              <div class="menu-icon">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+              </div>
+            </button>
             <?php
             /* This is where we will add the menu by using the register_nav_menus() function in functions.php */
             wp_nav_menu(
