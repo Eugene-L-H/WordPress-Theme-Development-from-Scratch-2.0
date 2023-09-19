@@ -8,7 +8,7 @@
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main">
-      <h1>Blog</h1>
+      <h1>News and Events:</h1>
       <div class="container">
 
         <div class="blog-items">
@@ -25,21 +25,22 @@
 
                 <!-- Add in featured image -->
                 <div class="featured-image">
-                  <?php the_post_thumbnail(); ?>
+                  <?php the_post_thumbnail([275, 275]); ?>
+                </div>
 
-                  <div class="meta-info">
-                    <p>Posted in
-                      <?php echo get_the_date(); ?> by
-                      <?php the_author_posts_link(); ?>
-                    </p>
-                    <p>Categories:
-                      <?php the_category(', '); ?>
-                    </p>
-                    <p>
-                      <?php the_tags('', ','); ?>
-                    </p>
-                  </div>
-                  <?php the_content(); ?>
+                <div class="meta-info">
+                  <p>Posted in
+                    <?php echo get_the_date(); ?> by
+                    <?php the_author_posts_link(); ?>
+                  </p>
+                  <p>Categories:
+                    <?php the_category(', '); ?>
+                  </p>
+                  <p>
+                    <?php the_tags('', ','); ?>
+                  </p>
+                </div>
+                <?php the_content(); ?>
               </article>
               <?php
             endwhile;

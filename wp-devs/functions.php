@@ -25,12 +25,21 @@ function wpdevs_config()
   // Enable Custom Headers support for the theme, in admin dashboard
   $args = array(
     'height' => 225,
-    'width' => 1920
+    'width' => 1920,
   );
   add_theme_support('custom-header', $args);
 
   // Enable custom thumbnails for posts 
   add_theme_support('post-thumbnails');
+
+  // Enable custom logo support for the theme, in admin dashboard
+  add_theme_support(
+    'custom-logo',
+    array(
+      'height' => 110,
+      'width' => 200
+    )
+  );
 }
 
 add_action('after_setup_theme', 'wpdevs_config', 0);

@@ -15,8 +15,25 @@
       <!-- -->
       <section class="top-bar">
         <div class="container">
+
           <div class="logo">
-            Logo
+            <!-- Add in custom logo -->
+            <?php
+
+            if (has_custom_logo()) {
+              the_custom_logo();
+            } else {
+              // If no custom logo, display the site's name
+              ?>
+              <a href="<?php echo home_url('/') ?>">
+                <span>
+                  <?php bloginfo('name'); ?>
+                </span>
+              </a>
+              <?php
+            }
+            ?>
+
           </div>
           <div class="searchbox">
             Search
