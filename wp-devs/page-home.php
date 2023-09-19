@@ -49,42 +49,70 @@
         </div>
       </section>
       <section class="home-blog">
+        <h2>Latest News</h2>
         <div class="container">
 
-          <div class="blog-items">
+          <!-- The Loop -->
+          <?php
 
-            <?php
-            if (have_posts()):
-              while (have_posts()):
-                the_post();
-                ?>
-                <article>
-                  <h2>
-                    <?php the_title(); ?>
-                  </h2>
-                  <div class="meta-info">
-                    <p>Posted in
-                      <?php echo get_the_date(); ?> by
-                      <?php the_author_posts_link(); ?>
-                    </p>
-                    <p>Categories:
-                      <?php the_category(', '); ?>
-                    </p>
-                    <p>
-                      <?php the_tags('', ','); ?>
-                    </p>
-                  </div>
-                  <?php the_content(); ?>
-                </article>
-                <?php
-              endwhile;
-            else:
+          /* Note: 'category__in' => array(5, 6) is used to only show posts from categories 5 and 6 (News and Events) */
+          $args = array(
+            'post_type' => 'post',
+            'posts_per_page' => 3,
+            'category__in' => array(5, 6),
+            'category__not_in' => array(1),
+          );
+
+          $postlist = new WP_Query($args);
+
+          if (have_posts()):
+            while ($postlist->have_posts()):
+              $postlist->the_post();
               ?>
-              <p>There are no posts!</p>
-            <?php endif;
-            ?>
+              <article class="latest-news">
+                <!-- Add in featured image -->
+                <div class="featured-image">
+                  <?php the_post_thumbnail('large'); ?>
+                </div>
 
-          </div> <!-- .blog-items -->
+                <!-- Add in meta info -->
+                <h3>
+                  <?php the_title(); ?>
+                </h3>
+
+                <div class="meta-info">
+                  <p>Posted in
+                    <!-- Add in author link -->
+                    <span class="author-name">
+                      <?php the_author_posts_link(); ?>
+                    </span>
+                    <!-- Display categories and tags -->
+                    Categories:
+                    <span>
+                      <?php the_category(', '); ?>
+                    </span>
+                    <span>
+                      <?php the_tags('', ','); ?>
+                    </span>
+                  </p>
+
+                  <span>
+                    <?php echo get_the_date(); ?> by
+                  </span>
+                </div>
+                <?php the_excerpt(); ?>
+              </article>
+              <?php
+            endwhile;
+
+            // Reset the global post object so that the rest of the page works correctly. Used after custom WP_Query.
+            wp_reset_postdata();
+          else:
+            ?>
+            <p>There are no posts!</p>
+          <?php endif;
+
+          ?>
 
         </div> <!-- .container -->
 
