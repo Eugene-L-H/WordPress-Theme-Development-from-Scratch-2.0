@@ -43,3 +43,18 @@ function wpdevs_config()
 }
 
 add_action('after_setup_theme', 'wpdevs_config', 0);
+
+// This function will add the sidebar to the theme
+function wpdevs_sidebars()
+{
+  register_sidebar(
+    array(
+      'name' => 'Blog Sidebar',
+      'id' => 'sidebar-blog',
+      'description' => 'This is the blog sidebar. You can add your widgets here.',
+      'before_widget' => '',
+      'after_widget' => '',
+    )
+  );
+}
+add_action('widgets_init', 'wpdevs_sidebars', 0);
