@@ -51,7 +51,7 @@
           ?>
 
         </div> <!-- .blog-items -->
-
+        <?php get_sidebar(); ?>
       </div> <!-- .container -->
     </main>
   </div>
