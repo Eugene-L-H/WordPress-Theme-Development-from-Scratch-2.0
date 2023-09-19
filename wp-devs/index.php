@@ -20,12 +20,16 @@
               ?>
               <article>
                 <h2>
-                  <?php the_title(); ?>
+                  <a href="<?php the_permalink(); ?>">
+                    <?php the_title(); ?>
+                  </a>
                 </h2>
 
                 <!-- Add in featured image -->
                 <div class="featured-image">
-                  <?php the_post_thumbnail([275, 275]); ?>
+                  <a href="<?php the_permalink(); ?>">
+                    <?php the_post_thumbnail([275, 275]); ?>
+                  </a>
                 </div>
 
                 <div class="meta-info">
@@ -40,7 +44,9 @@
                     <?php the_tags('', ','); ?>
                   </p>
                 </div>
-                <?php the_content(); ?>
+                <a href="<?php the_permalink(); ?>">
+                  <?php the_excerpt(); ?>
+                </a>
               </article>
               <?php
             endwhile;

@@ -71,13 +71,15 @@
               ?>
               <article class="latest-news">
                 <!-- Add in featured image -->
-                <div class="featured-image">
+                <a href="<?php the_permalink() ?>">
                   <?php the_post_thumbnail('large'); ?>
-                </div>
+                </a>
 
                 <!-- Add in meta info -->
                 <h3>
-                  <?php the_title(); ?>
+                  <a href="<?php the_permalink() ?>">
+                    <?php the_title(); ?>
+                  </a>
                 </h3>
 
                 <div class="meta-info">
