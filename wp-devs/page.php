@@ -26,11 +26,11 @@
               <?php the_content(); ?>
             </article>
             <?php
-          endwhile; ?>
-
+          endwhile;
+          ?>
         </div> <!-- .blog-items -->
-
       </div> <!-- .container -->
+
     </main>
   </div>
   <!---->

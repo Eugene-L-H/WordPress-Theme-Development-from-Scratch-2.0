@@ -36,6 +36,12 @@
         </article>
 
         <?php
+
+        // Check if comments are open or not. Display comments template if they are.
+        if (comments_open() || get_comments_number()) {
+          comments_template();
+        }
+
       endwhile;
       ?>
 
