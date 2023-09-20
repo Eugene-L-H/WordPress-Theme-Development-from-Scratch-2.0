@@ -50,6 +50,14 @@
               </article>
               <?php
             endwhile;
+            ?>
+
+            <!-- Add in pagination links -->
+            <div class="webdevs-pagination">
+              <?php echo paginate_links(); ?>
+            </div>
+
+            <?php
           else:
             ?>
             <p>There are no posts!</p>
