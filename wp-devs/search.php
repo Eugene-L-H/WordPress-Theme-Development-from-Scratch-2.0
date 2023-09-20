@@ -51,12 +51,8 @@
 
         <?php
       endwhile;
+      the_posts_pagination();
       ?>
-
-      <!-- Add in pagination links -->
-      <div class="webdevs-pagination">
-        <?php echo paginate_links(); ?>
-      </div>
 
     </div>
   </div>
