@@ -21,16 +21,16 @@
               <article>
                 <h2>
                   <a href="<?php the_permalink(); ?>">
-                    <!-- <?php the_title(); ?> -->
+                    <?php the_title(); ?>
                   </a>
                 </h2>
 
                 <!-- Add in featured image -->
-                <!-- <div class="featured-image">
+                <div class="featured-image">
                   <a href="<?php the_permalink(); ?>">
                     <?php the_post_thumbnail([275, 275]); ?>
                   </a>
-                </div> -->
+                </div>
 
                 <div class="meta-info">
                   <p>Posted in
@@ -49,11 +49,6 @@
                 </a>
               </article>
               <?php
-
-              // Check if comments are open or not. Display comments template if they are.
-              if (comments_open() || get_comments_number()) {
-                comments_template();
-              }
             endwhile;
           else:
             ?>
