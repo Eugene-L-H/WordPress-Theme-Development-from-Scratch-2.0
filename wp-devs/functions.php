@@ -42,6 +42,9 @@ function wpdevs_config()
   );
 }
 
+// This function will add the title tag support to the theme
+add_theme_support('title-tag');
+
 add_action('after_setup_theme', 'wpdevs_config', 0);
 
 // This function will add the blog sidebar to the theme
